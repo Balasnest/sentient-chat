@@ -1,9 +1,8 @@
-import { Configuration, OpenAIApi } from "openai";
+import OpenAI from "openai";
 
-const configuration = new Configuration({
+const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
-const openai = new OpenAIApi(configuration);
 
 export default async function handler(req, res) {
   if (req.method !== "POST") return res.status(405).send("Method Not Allowed");
@@ -18,15 +17,15 @@ export default async function handler(req, res) {
   const systemPrompt = agentPrompts[agentId] || "You are a helpful assistant.";
 
   try {
-    const completion = await openai.createChatCompletion({
+    const completion = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
       messages: [
         { role: "system", content: systemPrompt },
-        { role: "user", content: message },
-      ],
+        { role: "user", content: message }
+      ]
     });
 
-    const reply = completion.data.choices[0].message.content;
+    const reply = completion.choices[0].message.content;
     res.status(200).json({ reply });
   } catch (err) {
     res.status(500).json({ error: "OpenAI request failed", detail: err.message });
