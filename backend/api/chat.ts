@@ -18,7 +18,7 @@ export default async function handler(req, res) {
 
   try {
     const completion = await openai.chat.completions.create({
-      model: "gpt-3.5-turbo",
+      model: "gpt-3.5-turbo", // cheap + fast model
       messages: [
         { role: "system", content: systemPrompt },
         { role: "user", content: message }

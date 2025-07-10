@@ -6,7 +6,12 @@ export default function handler(req, res) {
       description: "Generate viral hashtags",
       category: "Social Media",
       group: "Trending",
-      systemPrompt: "You are a TikTok expert generating viral hashtags."
+      systemPrompt: [
+        "Generate hashtags for a fitness video",
+        "Create viral hashtags for cooking content",
+        "Suggest hashtags for travel vlog",
+        "Generate hashtags for a fitness video"
+      ]
     },
     {
       id: "doctor",
@@ -14,7 +19,12 @@ export default function handler(req, res) {
       description: "Medical Q&A assistant",
       category: "Health",
       group: "Popular",
-      systemPrompt: "You are a friendly medical assistant answering user queries simply."
+      systemPrompt: [
+        "Explain the benefits of different exercises",
+        "Suggest healthy meal ideas",
+        "Help me track my fitness goals",
+        "Explain the benefits of different exercises"
+      ]
     }
   ];
 
