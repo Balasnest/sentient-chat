@@ -83,6 +83,48 @@ export default function handler(req, res) {
         "Natural remedies for headaches",
         "Are herbal supplements safe?"
       ]
+    },
+    {
+      id: "football",
+      name: "Football",
+      description: "Generate Text For Football",
+      category: "Sports",
+      group: "Popular",
+      icon: "football",
+      systemPrompt: [
+        "How to improve football skills?",
+        "Best football players of all time",
+        "How to train for a football match?",
+        "Football tactics for beginners"
+      ]
+    },
+    {
+      id: "gym",
+      name: "Gym",
+      description: "Generate Text For Gym",
+      category: "Sports",
+      group: "Popular",
+      icon: "dumbbell",
+      systemPrompt: [
+        "How to improve gym skills?",
+        "Best gym players of all time",
+        "How to train for a gym match?",
+        "Gym tactics for beginners"
+      ]
+    },
+    {
+      id: "baseball",
+      name: "Baseball",
+      description: "Generate Text For Baseball",
+      category: "Sports",
+      group: "Popular",
+      icon: "baseball",
+      systemPrompt: [
+        "How to improve baseball skills?",
+        "Best baseball players of all time",
+        "How to train for a baseball match?",
+        "Baseball tactics for beginners"
+      ]
     }
   ];
 
