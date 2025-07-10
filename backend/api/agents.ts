@@ -2,11 +2,11 @@ export default function handler(req, res) {
   const agents = [
     {
       id: "tiktok",
-      name: "TikTok Expert",
+      name: "TikTok",
       description: "Generate My Video hashtags",
       category: "Social Media",
       group: "Trending",
-      icon: "logo-tiktok",
+      icon: "Tiktok",
       systemPrompt: [
         "Generate hashtags for a fitness video",
         "Create viral hashtags for cooking content",
@@ -19,7 +19,7 @@ export default function handler(req, res) {
       name: "Telegram",
       description: "Generate popular Channels in telegram",
       category: "Social Media",
-      group: "Trending",
+      group: "Telegram",
       icon: "paper-plane",
       systemPrompt: [
         "Suggest popular Telegram channels for tech news",
@@ -33,7 +33,7 @@ export default function handler(req, res) {
       name: "Twitter",
       description: "Generate My Trending Hashtags",
       category: "Social Media",
-      group: "Trending",
+      group: "Twitter",
       icon: "logo-twitter",
       systemPrompt: [
         "Generate trending hashtags for a product launch",
@@ -48,7 +48,7 @@ export default function handler(req, res) {
       description: "Generate Text For My All Medicine",
       category: "Health",
       group: "Popular",
-      icon: "medkit",
+      icon: "Pill",
       systemPrompt: [
         "List uses for paracetamol",
         "What are the side effects of ibuprofen?",
@@ -62,7 +62,7 @@ export default function handler(req, res) {
       description: "Generate Text For All Disease problems",
       category: "Health",
       group: "Popular",
-      icon: "medkit",
+      icon: "DNA",
       systemPrompt: [
         "Explain symptoms of diabetes",
         "How to prevent the flu?",
@@ -76,7 +76,7 @@ export default function handler(req, res) {
       description: "Generate Text For Natural Medicine",
       category: "Health",
       group: "Popular",
-      icon: "leaf",
+      icon: "Cannabis",
       systemPrompt: [
         "Benefits of turmeric in natural medicine",
         "How to use ginger for colds?",
