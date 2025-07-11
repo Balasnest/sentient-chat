@@ -20,7 +20,7 @@ export default function handler(req, res) {
       description: "Generate popular Channels in telegram",
       category: "Social Media",
       group: "Telegram",
-      icon: "paper-plane",
+      icon: "Telegram",
       systemPrompt: [
         "Suggest popular Telegram channels for tech news",
         "Find Telegram groups for language learning",
