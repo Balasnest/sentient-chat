@@ -25,6 +25,7 @@ export const Colors = {
     surface: '#1C1C1E',
     surfaceSecondary: '#2C2C2E',
     surfaceTertiary: '#3A3A3C',
+    textAssistant: '#A0A0A5',
     textPrimary: '#FFFFFF',
     textSecondary: '#EBEBF5',
     textTertiary: '#EBEBF599',
@@ -36,5 +37,8 @@ export const Colors = {
     inputBackground: '#1C1C1E',
     chipBackground: '#2C2C2E',
     chipSelected: '#007AFF',
+    inputText: '#A3A3A8',
+    leftNavColor: '#757474',
+    navIconBackground: '#2C2C2E',
   },
 }; 
