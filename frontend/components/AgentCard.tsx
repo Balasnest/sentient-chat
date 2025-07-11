@@ -3,6 +3,8 @@ import { Agent } from '@/store/agentsSlice';
 import React from 'react';
 import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { IconSymbol } from '../app/(tabs)/IconSymbol';
+import { AgentIconMap } from './AgentIcons';
+
 
 interface AgentCardProps {
   agent: Agent;
@@ -10,7 +12,8 @@ interface AgentCardProps {
 }
 
 export const AgentCard: React.FC<AgentCardProps> = ({ agent, onPress }) => {
-  const isImage = typeof agent.avatar !== 'string';
+  const isImage = typeof agent.avatar == 'string';
+  const Icon = AgentIconMap[agent.avatar as keyof typeof AgentIconMap] as ImageSourcePropType;
   return (
     <TouchableOpacity
       style={styles.card}
@@ -19,7 +22,7 @@ export const AgentCard: React.FC<AgentCardProps> = ({ agent, onPress }) => {
     >
       <View style={styles.avatarContainer}>
         {isImage ? (
-          <Image source={agent.avatar as ImageSourcePropType} style={styles.avatarImage} resizeMode="contain" />
+          <Image source={Icon} style={styles.avatarImage} resizeMode="contain" />
         ) : (
           <Text style={styles.avatar}>{agent.avatar}</Text>
         )}
@@ -31,7 +34,7 @@ export const AgentCard: React.FC<AgentCardProps> = ({ agent, onPress }) => {
         <Text style={styles.description} numberOfLines={2}>
           {agent.description}
         </Text>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity style={styles.button} onPress={onPress} activeOpacity={0.8}>
             <IconSymbol name="arrow.right" size={10} color={Colors.dark.textPrimary} />
         </TouchableOpacity>
       </View>
@@ -46,7 +49,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: Colors.dark.surfaceSecondary,
     borderRadius: 20,
-    padding: 15,
+    paddingHorizontal: 15,
+    paddingVertical: 12,
     marginRight: 12,
     borderWidth: 1,
     borderColor: Colors.dark.surfaceSecondary,
@@ -54,8 +58,6 @@ const styles = StyleSheet.create({
   avatarContainer: {
     width: 28,
     height: 28,
-    borderRadius: 24,
-    backgroundColor: Colors.dark.surfaceTertiary,
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: 4,
@@ -64,8 +66,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   avatarImage: {
-    width: 32,
-    height: 32,
+    width: 28,
+    height: 28,
   },
   content: {
     flex: 1,

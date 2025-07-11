@@ -1,10 +1,11 @@
 import { Colors } from '@/constants/Colors';
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Image, ImageSourcePropType, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { AgentIconMap } from './AgentIcons';
 
 interface CategoryChipProps {
   label: string;
-  icon?: string;
+  icon?: ImageSourcePropType;
   isSelected: boolean;
   onPress: () => void;
 }
@@ -19,13 +20,12 @@ export const CategoryChip: React.FC<CategoryChipProps> = ({
     <TouchableOpacity
       style={[
         styles.chip,
-        isSelected ? styles.chipSelected : styles.chipDefault,
+        styles.chipDefault,
       ]}
       onPress={onPress}
       activeOpacity={0.7}
     >
       <View style={styles.chipContent}>
-        {icon && <Text style={styles.icon}>{icon}</Text>}
         <Text
           style={[
             styles.chipText,
@@ -34,6 +34,7 @@ export const CategoryChip: React.FC<CategoryChipProps> = ({
         >
           {label}
         </Text>
+        {icon && icon !== 'globe' && <Image source={AgentIconMap[icon as keyof typeof AgentIconMap]} style={styles.icon} resizeMode="contain" />}
       </View>
     </TouchableOpacity>
   );
@@ -43,11 +44,11 @@ const styles = StyleSheet.create({
   chip: {
     flexDirection: 'row',
     alignItems: 'center',
-    paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingHorizontal: 24,
+    paddingVertical: 8,
     borderRadius: 20,
     marginRight: 8,
-    minWidth: 0,
+    minWidth: 20,
     height: 48,
     alignSelf: 'flex-start',
   },
@@ -57,9 +58,9 @@ const styles = StyleSheet.create({
     borderColor: Colors.dark.border,
   },
   chipSelected: {
-    backgroundColor: Colors.dark.chipSelected,
+    backgroundColor: Colors.dark.textPrimary,
     borderWidth: 1,
-    borderColor: Colors.dark.chipSelected,
+    borderColor: Colors.dark.textPrimary,
   },
   chipContent: {
     flexDirection: 'row',
@@ -67,11 +68,12 @@ const styles = StyleSheet.create({
     gap: 6,
   },
   icon: {
-    fontSize: 16,
+    width: 18,
+    height: 18,
     marginRight: 4,
   },
   chipText: {
-    fontSize: 16,
+    fontSize: 15,
     fontFamily: 'Poppins_500Medium',
     fontWeight: '500',
   },
@@ -79,6 +81,6 @@ const styles = StyleSheet.create({
     color: Colors.dark.textTertiary,
   },
   chipTextSelected: {
-    color: Colors.dark.surfaceSecondary,
+    color: Colors.dark.textPrimary,
   },
 }); 
